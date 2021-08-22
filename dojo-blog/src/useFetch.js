@@ -11,7 +11,6 @@ const useFetch =(url) =>{
 
     useEffect(()=>{
         console.log('use effect ran')
-        //fetch('')
         fetch(url)
         .then(res=>{
             return res.json();
@@ -20,8 +19,9 @@ const useFetch =(url) =>{
             setPending(false);
         }).catch(err=>{
             setError(err.message)
+            setPending(false);
         })
-    },[]);
+    },[url]);
 
     return {data,isPending,error}
 }
