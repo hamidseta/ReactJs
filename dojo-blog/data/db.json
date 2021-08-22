@@ -1,0 +1,28 @@
+{ 
+    "Blogs" : [
+        {   
+            "title":"Kitchen Recipe",
+            "body":"This blog contains the list of recipes with video",
+            "author":"Jack Maxwell",
+            "id":1
+        },
+        {   
+            "title":"Techno Craft",
+            "body":"This blog contains the list of new technology.",
+            "author":"XYZ",
+            "id":1
+        },
+        {   
+            "title":"Fonerena",
+            "body":"Latest Mobile Phones, News, Reviews in India : FoneArena The Mobile Blog",
+            "author":"Unknown Author",
+            "id":1
+        },
+        {   
+            "title":"Autoblog",
+            "body":"New Cars, Used Cars for Sale, Car Reviews and Car News",
+            "author":"Unknown Author",
+            "id":1
+        }       
+    ]
+}
