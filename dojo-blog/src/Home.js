@@ -8,6 +8,7 @@ const Home =() =>{
     return (
         <div className="home">
             <h2>Home</h2>
+            
             { isPending && <div> Loading </div> }
             {blogs && <BlogList blogs={blogs} title={'All the blogs!'} />}
         </div>

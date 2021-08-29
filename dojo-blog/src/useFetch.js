@@ -11,16 +11,28 @@ const useFetch =(url) =>{
 
     useEffect(()=>{
         console.log('use effect ran')
-        fetch(url)
-        .then(res=>{
-            return res.json();
-        }).then((data)=>{
-            setdata(data)
-            setPending(false);
-        }).catch(err=>{
-            setError(err.message)
-            setPending(false);
-        })
+        const abortConst = new AbortController();
+        setTimeout(()=>{
+            fetch(url,{ signal : abortConst.signal })
+            .then(res=>{
+                if(!res.ok){
+                    throw Error("Error is occured!")
+                }
+                return res.json();
+            }).then((data)=>{
+                setdata(data)
+                setPending(false);
+            }).catch(err=>{
+                if(err.name === 'AbortError'){
+                    console.log('Fetch aborted')
+                }else{
+                    setError(err.message)
+                    setPending(false);
+                }
+            })
+        },2000);
+
+        return ()=> abortConst.abort();
     },[url]);
 
     return {data,isPending,error}
